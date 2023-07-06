@@ -49,6 +49,27 @@ def traduire_texte(texte, de, a):
     else:
         return 'Une erreur s\'est produite lors de la traduction.'
 
+# Commande /start
+@bot.message_handler(commands=['start'])
+def afficher_message_bienvenue(message):
+    message_bienvenue = '''
+    🌟 Bienvenue ! Je suis votre *traducteur Anglais Francais* 🌍
+
+    Voici les principales commandes que je propose :
+
+    🇺🇸 `/fr hello this is a test` - Traduire le texte en anglais vers francais.
+    🇫🇷 `/en salut je suis un test` - Traduire le texte en francais vers anglais.
+
+    *Vous pouvez compter sur moi pour des traductions rapides et précises. 🚀*
+
+    Le code source de ce bot est open source et peut être consulté sur ce dépôt Git :
+    [Lien vers le code source](https://github.com/codingtuto/TG-TRANSLATOR-BOT/)
+
+    👉 Alors, prêt à traduire ? Envoyez-moi un message et choisissez la langue !
+
+    '''
+
+    bot.reply_to(message, message_bienvenue, parse_mode='Markdown')
 # Commande /fr
 @bot.message_handler(commands=['fr'])
 def traduire_fr(message):
