@@ -52,10 +52,6 @@ def traduire_texte(texte, de, a):
 # Commande /start
 @bot.message_handler(commands=['start'])
 def afficher_message_bienvenue(message):
-  bot.send_chat_action(
-      chat_id=message.chat.id,
-      action="typing"
-  )
     message_bienvenue = '''👋 Bienvenue ! Je suis votre *traducteur Anglais Francais* 🌍
 *Voici les principales commandes que je propose :*
     🇺🇸 `/fr hello this is a test` - Traduire le texte en anglais vers francais.
@@ -67,7 +63,10 @@ def afficher_message_bienvenue(message):
 
 *🆚 Version : 1.0.0 - By @A_liou*
     '''
-
+    bot.send_chat_action(
+      chat_id=message.chat.id,
+      action="typing"
+    )
     bot.reply_to(message, message_bienvenue, parse_mode='Markdown')
 # Commande /fr
 @bot.message_handler(commands=['fr'])
