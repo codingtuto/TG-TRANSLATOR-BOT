@@ -40,7 +40,7 @@ def traduire_texte(texte, de, a):
     }
 
     # Envoyer la requête à l'API de traduction
-    response = requests.post('https://codingtranslator.onrender.com/api', json=body)
+    response = requests.post('https://example.com/api', json=body)
 
     if response.status_code == 200:
         # Récupérer la réponse de l'API de traduction
@@ -63,18 +63,13 @@ def afficher_message_bienvenue(message):
 
 *🆚 Version : 1.0.0 - By @A_liou*
     '''
-    bot.send_chat_action(
-      chat_id=message.chat.id,
-      action="typing"
-    )
+    bot.send_chat_action(chat_id=message.chat.id, action="typing")
     bot.reply_to(message, message_bienvenue, parse_mode='Markdown')
+
 # Commande /fr
 @bot.message_handler(commands=['fr'])
 def traduire_fr(message):
-  bot.send_chat_action(
-      chat_id=message.chat.id,
-      action="typing"
-  )
+    bot.send_chat_action(chat_id=message.chat.id, action="typing")
     texte = message.text.replace('/fr', '').strip()
     if texte:
         reponse = traduire_texte(texte, 'en', 'fr')
@@ -85,10 +80,7 @@ def traduire_fr(message):
 # Commande /en
 @bot.message_handler(commands=['en'])
 def traduire_en(message):
-  bot.send_chat_action(
-      chat_id=message.chat.id,
-      action="typing"
-  )
+    bot.send_chat_action(chat_id=message.chat.id, action="typing")
     texte = message.text.replace('/en', '').strip()
     if texte:
         reponse = traduire_texte(texte, 'fr', 'en')
@@ -99,10 +91,7 @@ def traduire_en(message):
 # Répondre aux autres messages
 @bot.message_handler(func=lambda message: True)
 def repondre_autre(message):
-  bot.send_chat_action(
-      chat_id=message.chat.id,
-      action="typing"
-  )
+    bot.send_chat_action(chat_id=message.chat.id, action="typing")
     bot.reply_to(message, 'Veuillez utiliser la commande /fr ou /en pour traduire le texte.')
 
 # Lancer le bot
