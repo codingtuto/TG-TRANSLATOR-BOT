@@ -58,3 +58,5 @@ Le Bot Traducteur prend en charge deux commandes :
 <a href="https://github.com/codingtuto/TG-TRANSLATOR-BOT/">
         <img width="500" alt="Star History Chart" src="https://api.star-history.com/svg?repos=codingtuto/TG-TRANSLATOR-BOT&type=Date">
       </a> 
+
+<p align="center"><a href="https://github.com/codingtuto/TG-TRANSLATOR-BOT#"><img src="https://superagi.com/wp-content/uploads/2023/05/backToTopButton.png" alt="Retour en haut" height="29"/></a></p>
