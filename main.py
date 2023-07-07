@@ -52,6 +52,10 @@ def traduire_texte(texte, de, a):
 # Commande /start
 @bot.message_handler(commands=['start'])
 def afficher_message_bienvenue(message):
+  bot.send_chat_action(
+      chat_id=message.chat.id,
+      action="typing"
+  )
     message_bienvenue = '''👋 Bienvenue ! Je suis votre *traducteur Anglais Francais* 🌍
 *Voici les principales commandes que je propose :*
     🇺🇸 `/fr hello this is a test` - Traduire le texte en anglais vers francais.
@@ -68,6 +72,10 @@ def afficher_message_bienvenue(message):
 # Commande /fr
 @bot.message_handler(commands=['fr'])
 def traduire_fr(message):
+  bot.send_chat_action(
+      chat_id=message.chat.id,
+      action="typing"
+  )
     texte = message.text.replace('/fr', '').strip()
     if texte:
         reponse = traduire_texte(texte, 'en', 'fr')
@@ -78,6 +86,10 @@ def traduire_fr(message):
 # Commande /en
 @bot.message_handler(commands=['en'])
 def traduire_en(message):
+  bot.send_chat_action(
+      chat_id=message.chat.id,
+      action="typing"
+  )
     texte = message.text.replace('/en', '').strip()
     if texte:
         reponse = traduire_texte(texte, 'fr', 'en')
@@ -88,6 +100,10 @@ def traduire_en(message):
 # Répondre aux autres messages
 @bot.message_handler(func=lambda message: True)
 def repondre_autre(message):
+  bot.send_chat_action(
+      chat_id=message.chat.id,
+      action="typing"
+  )
     bot.reply_to(message, 'Veuillez utiliser la commande /fr ou /en pour traduire le texte.')
 
 # Lancer le bot
