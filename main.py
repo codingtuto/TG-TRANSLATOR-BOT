@@ -66,28 +66,15 @@ def afficher_message_bienvenue(message):
     bot.send_chat_action(chat_id=message.chat.id, action="typing")
     bot.reply_to(message, message_bienvenue, parse_mode='Markdown')
 
-# Commande /fr
-@bot.message_handler(commands=['fr'])
-def traduire_fr(message):
+# Gérer les commandes de traduction /fr & /en en une seule
+@bot.message_handler(commands=['fr', 'en'])
+def traduire_texte_commande(message):
     bot.send_chat_action(chat_id=message.chat.id, action="typing")
-    texte = message.text.replace('/fr', '').strip()
-    if texte:
-        reponse = traduire_texte(texte, 'en', 'fr')
-        bot.reply_to(message, reponse)
-    else:
-        bot.reply_to(message, 'Veuillez spécifier le texte à traduire après la commande /fr.')
-
-# Commande /en
-@bot.message_handler(commands=['en'])
-def traduire_en(message):
-    bot.send_chat_action(chat_id=message.chat.id, action="typing")
-    texte = message.text.replace('/en', '').strip()
-    if texte:
-        reponse = traduire_texte(texte, 'fr', 'en')
-        bot.reply_to(message, reponse)
-    else:
-        bot.reply_to(message, 'Veuillez spécifier le texte à traduire après la commande /en.')
-
+    commande, texte = message.text.split(maxsplit=1)
+    source_lang, target_lang = ("en", "fr") if commande == "/fr" else ("fr", "en")
+    reponse = traduire_texte(texte, source_lang, target_lang)
+    bot.reply_to(message, reponse)
+  
 # Répondre aux autres messages
 @bot.message_handler(func=lambda message: True)
 def repondre_autre(message):
