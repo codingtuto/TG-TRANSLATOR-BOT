@@ -70,7 +70,11 @@ def afficher_message_bienvenue(message):
 @bot.message_handler(commands=['fr', 'en'])
 def traduire_texte_commande(message):
     bot.send_chat_action(chat_id=message.chat.id, action="typing")
-    commande, texte = message.text.split(maxsplit=1)
+    commande, *texte = message.text.split(maxsplit=1)
+    if not texte:
+        bot.reply_to(message, "Veuillez saisir du texte après la commande.")
+        return
+    texte = texte[0]
     source_lang, target_lang = ("en", "fr") if commande == "/fr" else ("fr", "en")
     reponse = traduire_texte(texte, source_lang, target_lang)
     bot.reply_to(message, reponse)
