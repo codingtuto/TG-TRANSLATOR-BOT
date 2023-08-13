@@ -40,7 +40,7 @@ def traduire_texte(texte, de, a):
     }
 
     # Envoyer la requête à l'API de traduction
-    response = requests.post('https://codingtranslator.onrender.com/api', json=body)
+    response = requests.post('https://ctranslator.vercel.app/api', json=body)
 
     if response.status_code == 200:
         # Récupérer la réponse de l'API de traduction
