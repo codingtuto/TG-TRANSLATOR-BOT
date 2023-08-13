@@ -86,4 +86,4 @@ def repondre_autre(message):
     bot.reply_to(message, 'Veuillez utiliser la commande /fr ou /en pour traduire le texte.')
 
 # Lancer le bot
-bot.polling()
+bot.infinity_polling()
