@@ -7,6 +7,16 @@ Ce projet est un Bot Traducteur utilisant l'API CodingTranslator pour traduire d
 
 - [@en_frbot](https://t.me/en_frbot)
 
+## Nouveautés
+@en_frbot en/fr
+
+Mode groupe(vous pouvez ajouter le bot sur votre groupe en tant que admin pour qu'il effectue des traductions en anglais & francais et vice vers)
+
+- `en` : Mentionnez le bot suivi de `en` pour traduire du français vers l'anglais.
+- `fr` : Mentionnez le bot suivi de `fr` pour traduire de l'anglais vers le français.
+
+Il vous suffit de mentionner le bot avec le message d'un membre avec le paramètre approprié, et il effectuera la traduction automatiquement. Profitez de cette fonctionnalité pour des discussions plus accessibles dans le groupe !
+
 ## Installation
 
 Clonez ce dépôt Git sur votre machine locale :
