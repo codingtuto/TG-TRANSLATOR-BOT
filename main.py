@@ -86,14 +86,15 @@ def traduire_texte_commande(message):
 # Gérer la traduction dans un groupe
 @bot.message_handler(func=lambda message: message.reply_to_message is not None)
 def traduire_reponse(message):
-    bot.send_chat_action(chat_id=message.chat.id, action="typing")
     texte_original = message.reply_to_message.text
     if re.search(fr'@{re.escape(bot_username)}\s+(fr|en)\b', message.text, re.IGNORECASE):
         match = re.search(fr'@{re.escape(bot_username)}\s+(fr|en)\b', message.text, re.IGNORECASE)
         commande = match.group(1).lower()
         if commande == "fr":
+            bot.send_chat_action(chat_id=message.chat.id, action="typing")
             source_lang, target_lang = "en", "fr"
         elif commande == "en":
+            bot.send_chat_action(chat_id=message.chat.id, action="typing")
             source_lang, target_lang = "fr", "en"
         else:
             return 
