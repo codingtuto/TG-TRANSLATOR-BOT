@@ -30,6 +30,10 @@ telegram_api_token = os.getenv('TELEGRAM_API_TOKEN')
 
 # Créer un objet TeleBot avec le jeton d'API Telegram
 bot = telebot.TeleBot(telegram_api_token)
+bot_info = bot.get_me()
+bot_name = bot_info.first_name
+bot_id = bot_info.id
+bot_username = bot_info.username
 
 # Fonction de traduction
 def traduire_texte(texte, de, a):
@@ -61,7 +65,7 @@ def afficher_message_bienvenue(message):
 
 📦 *Le code source de ce bot est open source et peut être consulté sur ce dépôt Git :* [Lien vers le code source](https://github.com/codingtuto/TG-TRANSLATOR-BOT/)
 
-*🆚 Version : 1.0.1 - By @A_liou*
+*🆚 Version : 1.0.2 - By @A_liou*
     '''
     bot.send_chat_action(chat_id=message.chat.id, action="typing")
     bot.reply_to(message, message_bienvenue, parse_mode='Markdown')
@@ -82,9 +86,10 @@ def traduire_texte_commande(message):
 # Gérer la traduction dans un groupe
 @bot.message_handler(func=lambda message: message.reply_to_message is not None)
 def traduire_reponse(message):
+    bot.send_chat_action(chat_id=message.chat.id, action="typing")
     texte_original = message.reply_to_message.text
-    if re.search(r'@en_frbot\s+(fr|en)\b', message.text, re.IGNORECASE):
-        match = re.search(r'@en_frbot\s+(fr|en)\b', message.text, re.IGNORECASE)
+    if re.search(fr'@{re.escape(bot_username)}\s+(fr|en)\b', message.text, re.IGNORECASE):
+        match = re.search(fr'@{re.escape(bot_username)}\s+(fr|en)\b', message.text, re.IGNORECASE)
         commande = match.group(1).lower()
         if commande == "fr":
             source_lang, target_lang = "en", "fr"
@@ -96,4 +101,5 @@ def traduire_reponse(message):
         bot.reply_to(message.reply_to_message, reponse)
 
 # Lancer le bot
+print(f"Le bot '{bot_name}' (ID: {bot_id}) avec le nom d'utilisateur @{bot_username} a démarré avec succès.")
 bot.infinity_polling()
