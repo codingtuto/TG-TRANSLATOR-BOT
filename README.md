@@ -4,7 +4,7 @@
 Ce projet est un Bot Traducteur utilisant l'API CodingTranslator pour traduire des textes entre l'anglais et le français et vice versa.
 
 ## Démonstration
-
+![DEMO](https://telegra.ph/file/a1c21de279af8e668afbb.jpg)
 - [@en_frbot](https://t.me/en_frbot)
 
 ## Nouveautés
@@ -14,7 +14,8 @@ Mode groupe(vous pouvez ajouter le bot sur votre groupe en tant que admin pour q
 
 - `en` : Mentionnez le bot suivi de `en` pour traduire du français vers l'anglais.
 - `fr` : Mentionnez le bot suivi de `fr` pour traduire de l'anglais vers le français.
-
+**[Ajout]:** Le bot détectera automatiquement son nom d'utilisateur, inutile de saisir le nom d'utilisateur manuellement en réponse à ce [pull request](https://github.com/codingtuto/TG-TRANSLATOR-BOT/commit/5d3770c428a29591d50c196e521a2b3f2f3dd2b9).
+  
 Il vous suffit de mentionner le bot avec le message d'un membre avec le paramètre approprié, et il effectuera la traduction automatiquement. Profitez de cette fonctionnalité pour des discussions plus accessibles dans le groupe !
 
 ## Installation
@@ -44,20 +45,28 @@ Maintenant que vous avez configuré le projet, vous pouvez l'utiliser pour tradu
 ```
 
     
-## Commandes
-Le Bot Traducteur prend en charge deux commandes :
+## Utilisation
+**Mode privée :**
 
 `/fr <texte>`: Traduit le texte de l'anglais vers le français.
 
 `/en <texte>` : Traduit le texte du français vers l'anglais.
 
+**Mode groupe:**
+
+1. Mentionnez le bot dans un message en utilisant `@en_frbot` suivi de la langue cible (fr ou en) en réponse d'une message.
+2. Le bot traduira le message d'origine de l'anglais au français si la langue cible est "fr" ou du français à l'anglais si la langue cible est "en".
+3. 
+Exemple :
+
+- `@en_frbot en`: Le bot traduira le message de l'anglais au français.
+- `@en_frbot fr`: Le bot traduira le message du français à l'anglais.
 
 ## Technologies
 
 **Framework:** Telebot
 
 **Langage:** Python
-
 
 ## Auteur
 
