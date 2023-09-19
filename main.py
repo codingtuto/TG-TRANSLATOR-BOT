@@ -82,7 +82,7 @@ def traduire_texte_commande(message):
 # Gérer la traduction dans un groupe
 @bot.message_handler(func=lambda message: message.reply_to_message is not None)
 def traduire_reponse(message):
-    texte_original = message.reply_to_message.text-
+    texte_original = message.reply_to_message.text
     if re.search(r'@en_frbot\s+(fr|en)\b', message.text, re.IGNORECASE):
         match = re.search(r'@en_frbot\s+(fr|en)\b', message.text, re.IGNORECASE)
         commande = match.group(1).lower()
