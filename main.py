@@ -21,6 +21,7 @@ import os
 import requests
 import telebot
 from dotenv import load_dotenv
+import re
 
 # Charger les variables d'environnement à partir du fichier .env
 load_dotenv()
@@ -79,11 +80,16 @@ def traduire_texte_commande(message):
     reponse = traduire_texte(texte, source_lang, target_lang)
     bot.reply_to(message, reponse)
   
-# Répondre aux autres messages
-@bot.message_handler(func=lambda message: True)
-def repondre_autre(message):
-    bot.send_chat_action(chat_id=message.chat.id, action="typing")
-    bot.reply_to(message, 'Veuillez utiliser la commande /fr ou /en pour traduire le texte.')
+# Gérer les commandes de traduction dans un groupe
+@bot.message_handler(func=lambda message: message.reply_to_message is not None)
+def traduire_reponse(message):
+    commande = message.text.lower()
+    if re.match(r'^[.$!]', commande):
+        bot.send_chat_action(chat_id=message.chat.id, action="typing")
+        texte_original = message.reply_to_message.text
+        source_lang, target_lang = ("en", "fr") if commande == "fr" else ("fr", "en")
+        reponse = traduire_texte(texte_original, source_lang, target_lang)
+        bot.reply_to(message, reponse)
 
 # Lancer le bot
 bot.infinity_polling()
