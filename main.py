@@ -21,6 +21,7 @@ import requests
 import telebot
 from dotenv import load_dotenv
 import re
+import yaml
 
 # Charger les variables d'environnement à partir du fichier .env
 load_dotenv()
@@ -36,7 +37,8 @@ bot_id = bot_info.id
 bot_username = bot_info.username
 
 # Fonction de traduction
-def traduire_texte(texte, de, a):
+def traduire_texte_api(texte, de, a):
+    # Préparer le corps de la requête à l'API de traduction
     body = {
         "de": de,
         "a": a,
@@ -52,43 +54,42 @@ def traduire_texte(texte, de, a):
         return reponse
     else:
         return 'Une erreur s\'est produite lors de la traduction.'
+# YAML IMPORTATION
+with open("lang.yml", "r", encoding="utf-8") as file:
+    messages = yaml.safe_load(file)
+# DEFAULT LANGUAGE & GET LANGUAGE
+def get_message(message_key, user_language='fr'):
+    default_language = 'fr'
+    return messages.get(user_language, {}).get(message_key, messages.get(default_language, {}).get(message_key, ''))
 
-# Commande /start
+# START COMMAND
 @bot.message_handler(commands=['start'])
 def afficher_message_bienvenue(message):
-    message_bienvenue = '''👋 Bienvenue ! Je suis votre *traducteur Anglais Francais* 🌍
-*Voici les principales commandes que je propose :*
-    🇺🇸 `/fr hello this is a test` - Traduire le texte en anglais vers francais.
-    🇫🇷 `/en salut je suis un test` - Traduire le texte en francais vers anglais.
-
-*Vous pouvez compter sur moi pour des traductions rapides et précises. 🚀*
-
-📦 *Le code source de ce bot est open source et peut être consulté sur ce dépôt Git :* [Lien vers le code source](https://github.com/codingtuto/TG-TRANSLATOR-BOT/)
-
-*🆚 Version : 1.0.2 - By @A_liou*
-    '''
+    user_language_code = message.from_user.language_code
+    welcome_message = get_message('welcome', user_language_code)
     bot.send_chat_action(chat_id=message.chat.id, action="typing")
-    bot.reply_to(message, message_bienvenue, parse_mode='Markdown')
+    bot.reply_to(message, welcome_message, parse_mode='Markdown')
 
-# Gérer les commandes de traduction /fr & /en en une seule
+# /en & /fr Command
 @bot.message_handler(commands=['fr', 'en'])
 def traduire_texte_commande(message):
     bot.send_chat_action(chat_id=message.chat.id, action="typing")
     commande, *texte = message.text.split(maxsplit=1)
     if not texte:
-        bot.reply_to(message, "Veuillez saisir du texte après la commande.")
+        message_prompt = get_message('enter_text', message.from_user.language_code)
+        bot.reply_to(message, message_prompt)
         return
     texte = texte[0]
     source_lang, target_lang = ("en", "fr") if commande == "/fr" else ("fr", "en")
-    reponse = traduire_texte(texte, source_lang, target_lang)
+    reponse = traduire_texte_api(texte, source_lang, target_lang)
     bot.reply_to(message, reponse)
-  
-# Gérer la traduction dans un groupe
+
+# GROUPE MESSAGE
 @bot.message_handler(func=lambda message: message.reply_to_message is not None)
 def traduire_reponse(message):
     texte_original = message.reply_to_message.text
-    if re.search(fr'@{re.escape(bot_username)}\s+(fr|en)\b', message.text, re.IGNORECASE):
-        match = re.search(fr'@{re.escape(bot_username)}\s+(fr|en)\b', message.text, re.IGNORECASE)
+    if re.search(fr'@{re.escape(bot.username)}\s+(fr|en)\b', message.text, re.IGNORECASE):
+        match = re.search(fr'@{re.escape(bot.username)}\s+(fr|en)\b', message.text, re.IGNORECASE)
         commande = match.group(1).lower()
         if commande == "fr":
             bot.send_chat_action(chat_id=message.chat.id, action="typing")
