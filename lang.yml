@@ -1,0 +1,23 @@
+fr:
+  welcome: "👋 Bienvenue ! Je suis votre *traducteur Anglais Francais* 🌍\n*Voici les principales commandes que je propose :*\n    🇺🇸 `/fr hello this is a test` - Traduire le texte en anglais vers français.\n    🇫🇷 `/en salut je suis un test` - Traduire le texte en français vers anglais.\n\n*Vous pouvez compter sur moi pour des traductions rapides et précises. 🚀*\n\n📦 *Le code source de ce bot est open source et peut être consulté sur ce dépôt Git :* [Lien vers le code source](https://github.com/codingtuto/TG-TRANSLATOR-BOT/)\n\n*🆚 Version : 1.0.3 - By @A_liou*"
+  enter_text: "Veuillez saisir du texte après la commande."
+
+en:
+  welcome: "👋 Welcome! I am your *English French translator* 🌍\n*Here are the main commands I offer:*\n    🇺🇸 `/fr hello this is a test` - Translate text from English to French.\n    🇫🇷 `/en salut je suis un test` - Translate text from French to English.\n\n*You can count on me for fast and accurate translations. 🚀*\n\n📦 *The source code of this bot is open source and can be viewed on this Git repository:* [Link to source code](https://github.com/codingtuto/TG-TRANSLATOR-BOT/)\n\n*🆚 Version: 1.0.3 - By @A_liou*"
+  enter_text: "Please enter text after the command."
+
+ar:
+  welcome: "👋 مرحبًا! أنا مترجمك *من الإنجليزية إلى الفرنسية* 🌍\n*فيما يلي الأوامر الرئيسية التي أقدمها:*\n    🇺🇸 `/fr hello this is a test` - ترجمة النص من الإنجليزية إلى الفرنسية.\n    🇫🇷 `/en salut je suis un test` - ترجمة النص من الفرنسية إلى الإنجليزية.\n\n*يمكنك الاعتماد عليّ لتقديم ترجمات سريعة ودقيقة. 🚀*\n\n📦 *يمكن الوصول إلى الشيفرة المصدرية لهذا البوت والاطلاع عليها في هذا مستودع Git:* [الرابط إلى الشيفرة المصدرية](https://github.com/codingtuto/TG-TRANSLATOR-BOT/)\n\n*🆚 الإصدار: 1.0.3 - بواسطة @A_liou*"
+  enter_text: "الرجاء إدخال النص بعد الأمر."
+
+es:
+  welcome: "👋 ¡Bienvenido! Soy tu *traductor de inglés a francés* 🌍\n*Aquí tienes los principales comandos que ofrezco:*\n    🇺🇸 `/fr hello this is a test` - Traducir texto de inglés a francés.\n    🇫🇷 `/en salut je suis un test` - Traducir texto de francés a inglés.\n\n*Puedes contar conmigo para traducciones rápidas y precisas. 🚀*\n\n📦 *El código fuente de este bot es de código abierto y se puede ver en este repositorio de Git:* [Enlace al código fuente](https://github.com/codingtuto/TG-TRANSLATOR-BOT/)\n\n*🆚 Versión: 1.0.3 - Por @A_liou*"
+  enter_text: "Por favor, introduce texto después del comando."
+
+it:
+  welcome: "👋 Benvenuto! Sono il tuo *traduttore da inglese a francese* 🌍\n*Ecco i principali comandi che offro:*\n    🇺🇸 `/fr hello this is a test` - Tradurre il testo dall'inglese al francese.\n    🇫🇷 `/en salut je suis un test` - Tradurre il testo dal francese all'inglese.\n\n*Puoi contare su di me per traduzioni veloci e precise. 🚀*\n\n📦 *Il codice sorgente di questo bot è open source e può essere visualizzato su questo repository Git:* [Link al codice sorgente](https://github.com/codingtuto/TG-TRANSLATOR-BOT/)\n\n*🆚 Versione: 1.0.3 - Di @A_liou*"
+  enter_text: "Inserisci del testo dopo il comando."
+
+ru:
+  welcome: "👋 Приветствую! Я ваш *переводчик с английского на французский* 🌍\n*Вот основные команды, которые я предлагаю:*\n    🇺🇸 `/fr hello this is a test` - Перевести текст с английского на французский.\n    🇫🇷 `/en salut je suis un test` - Перевести текст с французского на английский.\n\n*Вы можете полагаться на меня для быстрых и точных переводов. 🚀*\n\n📦 *Исходный код этого бота открыт и может быть просмотрен на этом Git-репозитории:* [Ссылка на исходный код](https://github.com/codingtuto/TG-TRANSLATOR-BOT/)\n\n*🆚 Версия: 1.0.3 - От @A_liou*"
+  enter_text: "Введите текст после команды."
