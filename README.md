@@ -7,16 +7,23 @@ Ce projet est un Bot Traducteur utilisant l'API CodingTranslator pour traduire d
 ![DEMO](https://telegra.ph/file/a1c21de279af8e668afbb.jpg)
 - [@en_frbot](https://t.me/en_frbot)
 
-## Nouveautés
-@en_frbot en/fr
-
-Mode groupe(vous pouvez ajouter le bot sur votre groupe en tant que admin pour qu'il effectue des traductions en anglais & francais et vice vers)
-
+# Journal des modifications
+## [Version 1.0.3 ] - 2023-11-26
+### Ajouté
+- **Support multilingue**: Désormais, le bot peut détecter automatiquement la langue de l'utilisateur en fonction de ses paramètres Telegram. Les langues prises en charge comprennent :
+  - Français
+  - Anglais
+  - العربية (Arabe)
+  - Español (Espagnol)
+  - Italiano (Italien)
+  - Русский (Russe)
+![DEMO](https://telegra.ph/file/e5ac3c1fbe910944cf54a.jpg)
+## [Version 1.0.2 ] - 2023-07-14
+**Mode groupe** (vous pouvez ajouter le bot sur votre groupe en tant que admin pour qu'il effectue des traductions en anglais & francais et vice vers)
+**[Ajout]:** Le bot détectera automatiquement son nom d'utilisateur, inutile de saisir le nom d'utilisateur manuellement en réponse à ce [pull request](https://github.com/codingtuto/TG-TRANSLATOR-BOT/commit/5d3770c428a29591d50c196e521a2b3f2f3dd2b9).
+## [Version 1.0.1 ] - 2023-06-20
 - `en` : Mentionnez le bot suivi de `en` pour traduire du français vers l'anglais.
 - `fr` : Mentionnez le bot suivi de `fr` pour traduire de l'anglais vers le français.
-**[Ajout]:** Le bot détectera automatiquement son nom d'utilisateur, inutile de saisir le nom d'utilisateur manuellement en réponse à ce [pull request](https://github.com/codingtuto/TG-TRANSLATOR-BOT/commit/5d3770c428a29591d50c196e521a2b3f2f3dd2b9).
-  
-Il vous suffit de mentionner le bot avec le message d'un membre avec le paramètre approprié, et il effectuera la traduction automatiquement. Profitez de cette fonctionnalité pour des discussions plus accessibles dans le groupe !
 
 ## Installation
 
